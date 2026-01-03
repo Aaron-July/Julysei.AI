@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Julysei.AI",
+  "description": "AI-Powered Web and App Solutions. Modern agency portfolio with Gemini-powered chatbot and voice assistant.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

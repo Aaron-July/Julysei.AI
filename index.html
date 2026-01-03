@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Julysei.AI - Intelligent Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Initialize theme before body renders
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                // Using rgb(var(...) / <alpha-value>) strategy for opacity support
+                base: 'rgb(var(--brand-base) / <alpha-value>)', 
+                surface: 'rgb(var(--brand-surface) / <alpha-value>)', 
+                accent: 'rgb(var(--brand-accent) / <alpha-value>)', 
+                highlight: 'rgb(var(--brand-highlight) / <alpha-value>)', 
+                text: 'rgb(var(--brand-text) / <alpha-value>)', 
+                muted: 'rgb(var(--brand-muted) / <alpha-value>)',
+                border: 'rgb(var(--brand-border) / <alpha-value>)', // Adaptive border color
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        /* Light Mode Defaults (RGB for Tailwind opacity support) */
+        --brand-base: 249 250 251;      /* gray-50 */
+        --brand-surface: 255 255 255;   /* white */
+        --brand-accent: 234 179 8;      /* yellow-500 */
+        --brand-highlight: 13 148 136;  /* teal-600 */
+        --brand-text: 17 24 39;         /* gray-900 */
+        --brand-muted: 75 85 99;        /* gray-600 */
+        --brand-border: 0 0 0;          /* black (for light mode borders) */
+      }
+
+      .dark {
+        /* Dark Mode Overrides */
+        --brand-base: 28 28 40;         /* #1C1C28 */
+        --brand-surface: 42 42 51;      /* #2A2A33 */
+        --brand-accent: 255 215 0;      /* #FFD700 */
+        --brand-highlight: 78 205 196;  /* #4ECDC4 */
+        --brand-text: 224 224 224;      /* #E0E0E0 */
+        --brand-muted: 160 160 176;     /* #A0A0B0 */
+        --brand-border: 255 255 255;    /* white (for dark mode borders) */
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem; /* Offsets scroll position for fixed header (h-20 = 5rem) */
+      }
+      body {
+        background-color: rgb(var(--brand-base));
+        color: rgb(var(--brand-text));
+        font-family: 'Inter', sans-serif;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgb(var(--brand-base)); 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgb(var(--brand-surface)); 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgb(var(--brand-highlight)); 
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-markdown": "https://esm.sh/react-markdown@^10.1.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
